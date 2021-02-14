@@ -2,7 +2,7 @@
 
 Problem Statement
 To build a classification methodology to predict the type of Thyroid based on the given training data. 
-Architecture
+
   
 Data Description
 The client will send data in multiple sets of files in batches at a given location. Data will contain different classes of thyroid and 30 columns of different values.
@@ -11,6 +11,7 @@ primary_hypothyroid, secondary_hypothyroid”.
 
 Apart from training files, we also require a "schema" file from the client, which contains all the relevant information about the training files such as:
 Name of the files, Length of Date value in FileName, Length of Time value in FileName, Number of Columns, Name of the Columns, and their datatype.
+
  
 Data Validation 
 In this step, we perform different sets of validation on the given set of training files.  
@@ -33,6 +34,7 @@ Data Insertion in Database
 1) Database Creation and connection - Create a database with the given name passed. If the database is already created, open the connection to the database. 
 2) Table creation in the database - Table with name - "Good_Data", is created in the database for inserting the files in the "Good_Data_Folder" based on given column names and datatype in the schema file. If the table is already present, then the new table is not created and new files are inserted in the already present table as we want training to be done on new as well as old training files.     
 3) Insertion of files in the table - All the files in the "Good_Data_Folder" are inserted in the above-created table. If any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data_Folder".
+
  
 Model Training 
 1) Data Export from Db - The data in a stored database is exported as a CSV file to be used for model training.
